@@ -1,8 +1,11 @@
 const express = require("express")
+const colors = require("colors")
 const dotenv = require("dotenv").config()
-const port = process.env.PORT || 5000
 const { errorHanlder } = require("./src/middleware/errorMiddleware")
+const connectDB = require("./src/config/db")
 const goalsRoutes = require("./src/routes/goals")
+const port = process.env.PORT || 5000
+connectDB()
 const app = express()
 // Routes
 
