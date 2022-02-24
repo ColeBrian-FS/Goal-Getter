@@ -7,6 +7,7 @@ const User = require("../models/user")
 // @access Public 
 
 class userController {
+    // Password Verfication
     registerUser = asyncHanlder(async (req, res) => {
         const { name, email, password } = req.body
         if (!name || !email || !password) {

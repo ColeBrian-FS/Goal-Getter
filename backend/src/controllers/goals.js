@@ -1,4 +1,5 @@
 const asyncHandler = require("express-async-handler")
+const validtation = require("../config/validation")
 const Goal = require("../models/goal")
 const User = require("../models/user")
 // @desc Goals Controller
@@ -9,7 +10,6 @@ class GoalsController {
     getGoals = asyncHandler(async (req, res) => {
         const goals = await Goal.find({ user: req.user.id })
         res.status(200).json(goals)
-
     })
     // @desc Get Goal
     // @route GET /api/goals/1
@@ -23,20 +23,16 @@ class GoalsController {
     // @route POST /api/goals
     // @access Private
     postGoal = asyncHandler(async (req, res) => {
-
         // checks if text is not blank 
-        if (!req.body.text) {
-            res.status(400)
-            throw new Error("Please enter a goal")
-        }
+        validtation.notBlank(400, req.body.text, 'Please enter a goal', res)
 
         const goal = await Goal.create({
             text: req.body.text,
             user: req.user.id
         })
+
         console.log(req.body)
         res.status(200).json(goal)
-
     })
 
     // @desc Update Goal
@@ -44,53 +40,35 @@ class GoalsController {
     // @access Private
     updateGoal = asyncHandler(async (req, res) => {
 
+        // Finds goal by id and checks if exist
         const goal = await Goal.findById(req.params.id)
+        validtation.notBlank(400, goal, 'Goal not found', res)
 
-        // checks if goals exist
-        if (!goal) {
-            res.status(400)
-            throw new Error("Goal Not Found")
-        }
+        // Find user by id and checks if exists
         const user = await User.findById(req.user.id)
+        validtation.notBlank(401, user, 'User not found ', res)
 
-        // Check if user exist
-        if (!user) {
-            res.status(401)
-            throw new ('User not found')
+        // Comparing goal Id to user Id 
+        validtation.comparingIds(401, goal.user.toString(), user.id, 'User not authorized', res)
 
-        }
-        // checks login user matches goal user 
-        if (goal.user.toString() !== user.id) {
-            res.status(401)
-            throw new Error('User not authorized')
-        }
         const updatedGoal = await Goal.findByIdAndUpdate(req.params.id, req.body, { new: true })
         res.status(200).json(updatedGoal)
-
     })
     // @desc Delete Goal
     // @route DELETE /api/goals/1
     // @access Private
     deleteGoal = asyncHandler(async (req, res) => {
+
+        // Finds goal by id and checks if exist
         const goal = await Goal.findById(req.params.id)
+        validtation.notBlank(400, goal, 'Goal not found', res)
 
-        // checks if goals exist
-        if (!goal) {
-            res.status(400)
-            throw new Error("Goal Not Found")
-        }
+        // Find user by id and checks if exists
         const user = await User.findById(req.user.id)
-        // Check if user exist
-        if (!user) {
-            res.status(401)
-            throw new ('User not found')
-        }
+        validtation.notBlank(401, user, 'User not found ', res)
 
-        // checks login user matches goal user 
-        if (goal.user.toString() !== user.id) {
-            res.status(401)
-            throw new Error('User not authorized')
-        }
+        // Comparing goal Id to user Id 
+        validtation.comparingIds(401, goal.user.toString(), user.id, 'User not authorized', res)
 
         const deleteGoal = await Goal.findByIdAndDelete(req.params.id)
         res.status(200).json(deleteGoal)

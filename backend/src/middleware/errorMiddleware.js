@@ -1,7 +1,7 @@
 // Error handler that runs in between req -> res
 const errorHanlder = (err, req, res, next) => {
-    // sets value if error is there else error 500
 
+    // sets value if error is there else error 500
     const statusCode = res.statusCode ? res.statusCode : 500
     res.status(statusCode)
 
