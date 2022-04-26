@@ -9,13 +9,16 @@
 body {
   font-family: "Poppins", sans-serif;
   height: 100vh;
+  background-color: #000;
 }
 
 a {
   text-decoration: none;
-  color: #000;
+  color: white;
 }
-
+label{
+  color: white;
+}
 p {
   line-height: 1.7;
 }
@@ -68,7 +71,7 @@ h3 {
 }
 
 .header ul li a:hover {
-  color: #777;
+  color: white;
 }
 
 .header ul li a svg {
@@ -81,20 +84,34 @@ h3 {
   margin-bottom: 50px;
   padding: 0 20px;
 }
-
+.heading h1 {
+  font-size: 2rem;
+  color: white;
+}
 .heading p {
-  color: #828282;
+  color: white;
 }
 
 .goals {
-  display: grid;
+  display: flex;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
+}
+.badge{
+  background-color: #000;
+  font-size: 10px;
+  padding: 10px;
+  color: #fff;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
 }
 
 .goal {
   background-color: #f4f4f4;
   margin: 10px 0;
+  border-radius: 15px;
   padding: 20px 0 10px;
   position: relative;
 }
@@ -137,10 +154,10 @@ h3 {
 
 .btn {
   padding: 10px 20px;
-  border: 1px solid #000;
+  border: 1px solid white;
   border-radius: 5px;
-  background: #000;
-  color: #fff;
+  background: white;
+  color: #000;
   font-size: 16px;
   font-weight: 700;
   cursor: pointer;
@@ -166,7 +183,10 @@ h3 {
 }
 
 .btn:hover {
+  transition: 100ms ease-in-out;
   transform: scale(0.98);
+  background-color: rgb(21, 21, 21);
+  color: white;
 }
 
 .loadingSpinnerContainer {
@@ -207,6 +227,7 @@ h3 {
 
   .heading h1 {
     font-size: 2rem;
+    color: white;
   }
 
   .heading p {

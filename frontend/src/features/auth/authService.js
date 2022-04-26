@@ -22,7 +22,7 @@ const login = async (userData) => {
 
     // returns web token
     if (response.data) {
-        localStorage.setItem('user', JSON.stringify(response.data))
+        localStorage.setItem('goal-getter-user', JSON.stringify(response.data))
     }
     return response.data
 }

@@ -5,6 +5,7 @@ import GoalForm from "../components/GoalForm";
 import GoalItem from "../components/GoalItem";
 import { getGoals, reset } from '../features/goals/goalSlice'
 import Spinner from '../components/Spinner'
+import { toast, ToastContainer } from "react-toastify";
 
 function Dashboard() {
   const navigate = useNavigate()
@@ -18,7 +19,7 @@ const { user } = useSelector((state) => state.auth)
   
   useEffect(() => {
     if (isError) {
-      console.log(message)
+      toast.error(message)
     }
 
     if (!user) {
@@ -55,6 +56,7 @@ const { user } = useSelector((state) => state.auth)
           <h3>You have not set any goals</h3>
         )}
       </section>
+      <ToastContainer/>
       </>
   )
 }

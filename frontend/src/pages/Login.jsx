@@ -14,7 +14,7 @@ const [form, setForm] = useState({
 const { email ,password } = form
 const navigate = useNavigate()
 const dispatch = useDispatch()
-const { user , isloading , isError, isSucess, message} =useSelector((state)=>state.auth)
+const { user , isloading , isError, isSuccess, message} =useSelector((state)=>state.auth)
 
 
 const onChange = (e) => {
@@ -43,13 +43,13 @@ useEffect(() => {
         toast.error(message)
     }
     // register successful or user logged in
-    if(isSucess || user){
+    if(isSuccess || user){
         navigate("/")
     }
     // reset global state
     dispatch(reset())
 
-}, [user, isError, isSucess, message, navigate, dispatch]);
+}, [user, isError, isSuccess, message, navigate, dispatch]);
 
 if(isloading){
     return <Spinner/>
