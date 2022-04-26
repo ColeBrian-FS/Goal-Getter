@@ -23,7 +23,7 @@ Exercise App is a Full Stack Application that allows users create goals.
 
 <img title="CSS" height="50" src="https://upload.wikimedia.org/wikipedia/commons/9/96/Sass_Logo_Color.svg">
 
-<img title="NextJS" height="50" src="https://miro.medium.com/max/1400/1*W-ZrkK0_DziOftGvtpBaMQ.jpeg">
+<img title="React Router" height="50" src="https://miro.medium.com/max/1400/1*sX8rBJBol5dBp5WIJQrYyw.png">
 </div>
 </div>
 
@@ -42,13 +42,10 @@ Exercise App is a Full Stack Application that allows users create goals.
 
 <div style="display; flex margin-bottom:40px;">
 
-<img title="ExpressJS" height="30" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Heroku_logo.svg/2880px-Heroku_logo.svg.png">
+<img title="Heroku" height="30" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Heroku_logo.svg/2880px-Heroku_logo.svg.png">
 
 <img title="Postman" height="30" src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Postman_%28software%29.png">
 
-
-<img title="DB Diagram" height="30" src="https://blog.dbdiagram.io/content/images/size/w1000/2020/04/dbdiagram_logo_text_720.png">
-</div>
 
 ## Endpoint Table
 
@@ -56,10 +53,7 @@ Exercise App is a Full Stack Application that allows users create goals.
 
 | Verb | Endpoint              | Result                                 |
 | ---- | --------------------- | -------------------------------------- |
-| GET  | /                     | Landing Page |
-| GET  | /dashboard            | Dashboard Page                 |
-| GET  | /dashboard/exercises  | Exercises Page                         |
-| GET  | /dashboard/regiments  | Regiments Page                         |
+| GET  | /dashboard  | Exercises Page                                   |
 | GET  | /login                | Login Page                             |
 | GET  | /signup               | Signup Page                            |
 
@@ -69,16 +63,8 @@ Exercise App is a Full Stack Application that allows users create goals.
 | ------ | --------------------------- | --------------------- |
 | POST   | /api/v1/users/login         | Login User            |
 | POST   | /api/v1/users/register      | Create User           |
-| POST   | /api/v1/users/authO         | Google Login          |
-| GET    | /api/v1/regiments           | Get all regiments     |
-| POST   | /api/v1/regiments           | Create regiment       |
-| PUT    | /api/v1/regiments/:id       | Update regiment       |
-| DELETE | /api/v1/regiments/:id       | Delete regiment       |
-| GET    | /api/v1/day                 | Get all training days |
-| POST   | /api/v1/day                 | Create a training day |
-| PUT    | /api/v1/day/:id             | Update a training day |
-| DELETE | /api/v1/day/:id             | Delete a training day |
-| GET    | /api/v1/exercises/plans     | Get all exercises     |
-| POST   | /api/v1/exercises/plans     | Create a exercises    |
-| PUT    | /api/v1/exercises/plans/:id | Update a exercises    |
-| DELETE | /api/v1/exercises/plans/:id | Delete a exercises    |
+| GET    | /api/v1/goals                |    Get Goals              |
+| POST   | /api/v1/regiments           | Create Goal       |
+| PUT    | /api/v1/regiments/:id       | Update Goal       |
+| DELETE | /api/v1/regiments/:id       | Delete Goal       |
+| 
