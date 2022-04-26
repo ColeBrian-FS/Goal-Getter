@@ -1,8 +1,8 @@
 const { decodeToken } = require("../config/jwt")
-const asyncHanlder = require("express-async-handler")
+// const asyncHanlder = require("express-async-handler")
 const User = require("../models/user")
 
-const protect = asyncHanlder(async (req, res, next) => {
+const protect = async (req, res, next) => {
     let token
     if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
         try {
@@ -20,15 +20,13 @@ const protect = asyncHanlder(async (req, res, next) => {
             next()
         } catch (error) {
             console.log(error)
-            res.status(401)
-            throw new Error("Not authorized")
+            res.status(401).json("Not authorized")
         }
     }
 
     if (!token) {
-        res.status(401)
-        throw new Error("Not Authorizd, no token")
+        res.status(401).json("Not Authorizd, no token")
     }
 
-})
+}
 module.exports = { protect }

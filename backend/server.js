@@ -18,7 +18,6 @@ app.use(express.urlencoded({ extended: false }))
 // Routes
 app.use("/api/goals", goalsRoutes)
 app.use("/api/users", usersRoutes)
-app.use(errorHanlder)
 
 
 app.listen(port, () => { console.log(`server is runing http://localhost:${port}`) })

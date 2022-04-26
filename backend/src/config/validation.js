@@ -5,7 +5,7 @@ class Validation {
         // checks if text is not blank 
         if (!data) {
             res.status(statusCode)
-            throw new Error(msg)
+                .json(msg)
         }
 
     }
@@ -13,7 +13,7 @@ class Validation {
         // checks login user matches goal user 
         if (x_id !== y_id) {
             res.status(statusCode)
-            throw new Error(msg)
+                .json(msg)
         }
     }
 }

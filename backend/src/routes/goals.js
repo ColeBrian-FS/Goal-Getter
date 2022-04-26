@@ -5,9 +5,8 @@ const { protect } = require("../middleware/auth")
 
 router
     .get("/", protect, GoalsController.getGoals)
-    .post("/", protect, GoalsController.postGoal)
+    .post("/", protect, GoalsController.setGoal)
 router
-    .get("/:id", protect, GoalsController.getSingleGoal)
     .put("/:id", protect, GoalsController.updateGoal)
     .delete("/:id", protect, GoalsController.deleteGoal)
 

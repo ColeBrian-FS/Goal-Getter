@@ -12,12 +12,12 @@ class userController {
         const { name, email, password } = req.body
         if (!name || !email || !password) {
             res.status(400)
-            throw new Error('Please add all fields')
+                .json('Please add all fields')
         }
         const userExist = await User.findOne({ email })
         if (userExist) {
             res.status(400)
-            throw new Error('User Already exists')
+                .json('User Already exists')
         }
 
         // Hash pasword 
@@ -37,7 +37,7 @@ class userController {
         }
         else {
             res.status(400)
-            throw new Error('Invalid user data')
+                .json('Invalid user data')
         }
     })
     // @desc Register new user 
@@ -59,7 +59,7 @@ class userController {
         }
         else {
             res.status(400)
-            throw new Error('Invalid credentials')
+                .json('Invalid credentials')
         }
     })
 
