@@ -67,4 +67,3 @@ Exercise App is a Full Stack Application that allows users create goals.
 | POST   | /api/v1/regiments           | Create Goal       |
 | PUT    | /api/v1/regiments/:id       | Update Goal       |
 | DELETE | /api/v1/regiments/:id       | Delete Goal       |
-| 
