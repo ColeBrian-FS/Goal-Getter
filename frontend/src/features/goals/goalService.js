@@ -1,7 +1,6 @@
 import axios from 'axios'
 
 const API_URL = `${process.env.API_URL}/api/goals/`
-
 // Create new goal
 const createGoal = async (goalData, token) => {
     const config = {
