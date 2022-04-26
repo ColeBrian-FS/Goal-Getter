@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = `${process.env.API_URL}/api/users/`
+const API_URL = `https://goal-getter-v1.herokuapp.com/api/users/`
 
 
 // Register User - Sends user info
@@ -29,7 +29,7 @@ const login = async (userData) => {
 
 // Logout user
 const logout = () => {
-    localStorage.removeItem('user')
+    localStorage.removeItem('goal-getter-user')
 }
 const authService = {
     register,

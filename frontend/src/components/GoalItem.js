@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { useDispatch } from 'react-redux'
 import { deleteGoal } from '../features/goals/goalSlice'
 import { FaWindowClose } from "react-icons/fa"
